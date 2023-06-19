@@ -48,26 +48,28 @@ const createComment = () => ({
   message: MESSAGES[getRandomInteger(0, MESSAGES.length - 1)],
   name: NAMES[getRandomInteger(0, NAMES.length - 1)],
 });
-// Случайное число комментариев
-// const COMMENTS_COUNT = getRandomInteger(0, 30);
 
-// Создаём массив со случайным числом комментариев
-const addComments = Array.from({length: getRandomInteger(Comments.MIN, Comments.MAX)}, createComment);
+// Создаём функцию с параметром длины, которая будет возвращать массив
+const addComments = (length) => {
+  const commentArray = [];
+  for (let i = 0; i < length; i++) {
+    commentArray.push(createComment(i));
+  }
+  return commentArray;
+};
 
 // Создаем фотографию
-// Что такое id? Кто его определит?!!!
 const createPhoto = (id) => ({
   id: id,
   url: `photos/${id}.jpg`,
   description: DESCRIPTION[getRandomInteger(0, DESCRIPTION.length - 1)],
   likes: getRandomInteger(Likes.MIN, Likes.MAX),
-  comments: addComments,
+  comments: addComments(getRandomInteger(Comments.MIN, Comments.MAX)),
 });
-
-const photos = [];
 
 // Создаём функцию, которая будет добавлять фотографии в массив
 const addPhotos = () => {
+  const photos = [];
   for (let i = 1; i <= PHOTO_COUNT; i++) {
     photos.push(createPhoto(i));
   }
@@ -75,8 +77,3 @@ const addPhotos = () => {
 };
 
 addPhotos();
-
-console.log(photos);
-
-// Id и url всё же повторяются
-// Как сделать так, чтобы количество комментариев под фото были разными???
