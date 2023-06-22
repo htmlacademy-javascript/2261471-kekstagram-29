@@ -25,3 +25,46 @@ const createNumber = (string) => {
 };
 
 createNumber('33 коровы, ни одного быка');
+
+// Функция, считающая продолжительность рабочего дня
+const sayTime = (startDay, endDay, meet, duration) => {
+  // Пересчитываем окончание рабочего дня в минуты
+  const arrayEnd = endDay.split(':');
+  const objEnd = {};
+  objEnd.hours = Number(arrayEnd[0]);
+  objEnd.minutes = Number(arrayEnd[1]);
+  objEnd.totalMinutes = (objEnd.hours * 60) + objEnd.minutes;
+  // Пересчитываем время встречи в минутах
+  const arrayMeet = meet.split(':');
+  const objMeet = {};
+  objMeet.hours = Number(arrayMeet[0]);
+  objMeet.minutes = Number(arrayMeet[1]);
+  objMeet.totalMinutes = (objMeet.hours * 60) + objMeet.minutes;
+
+  const timeLeft = objEnd.totalMinutes - objMeet.totalMinutes;
+
+  // return (timeLeft >= duration || timeLeft >= -(duration));
+  return (timeLeft);
+};
+
+console.log(sayTime('10:00', '00:00', '23:00', 50));
+
+// const timeInMinutes = (time, meet, duration) => {
+
+//   const arrayEnd = time.split(':');
+//   const objEnd = {};
+//   objEnd.hours = Number(arrayEnd[0]);
+//   objEnd.minutes = Number(arrayEnd[1]);
+//   objEnd.totalMinutes = (objEnd.hours * 60) + objEnd.minutes;
+
+//   const arrayMeet = meet.split(':');
+//   const objMeet = {};
+//   objMeet.hours = Number(arrayMeet[0]);
+//   objMeet.minutes = Number(arrayMeet[1]);
+//   objMeet.totalMinutes = (objMeet.hours * 60) + objMeet.minutes;
+
+//   const totalTime = objMeet.totalMinutes - objEnd.totalMinutes;
+//   return totalTime >= duration;
+// };
+
+// console.log(timeInMinutes('14:05', '23:59', 100));
