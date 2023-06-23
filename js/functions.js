@@ -33,6 +33,10 @@ const sayTime = (startDay, endDay, meet, duration) => {
   const objEnd = {};
   objEnd.hours = Number(arrayEnd[0]);
   objEnd.minutes = Number(arrayEnd[1]);
+  // Проверка на то, чтоб конец рабочего дня не заканчивался в 0 часов
+  if (objEnd.hours === 0) {
+    objEnd.hours = 24;
+  }
   objEnd.totalMinutes = (objEnd.hours * 60) + objEnd.minutes;
   // Пересчитываем время встречи в минутах
   const arrayMeet = meet.split(':');
@@ -42,12 +46,10 @@ const sayTime = (startDay, endDay, meet, duration) => {
   objMeet.totalMinutes = (objMeet.hours * 60) + objMeet.minutes;
 
   const timeLeft = objEnd.totalMinutes - objMeet.totalMinutes;
-
-  // return (timeLeft >= duration || timeLeft >= -(duration));
-  return (timeLeft);
+  return (timeLeft >= duration);
 };
 
-console.log(sayTime('10:00', '00:00', '23:00', 50));
+sayTime('10:00', '00:00', '23:00', 60);
 
 // const timeInMinutes = (time, meet, duration) => {
 
