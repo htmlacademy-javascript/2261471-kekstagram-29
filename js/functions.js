@@ -50,23 +50,3 @@ const sayTime = (startDay, endDay, meet, duration) => {
 };
 
 sayTime('10:00', '00:00', '23:00', 60);
-
-// const timeInMinutes = (time, meet, duration) => {
-
-//   const arrayEnd = time.split(':');
-//   const objEnd = {};
-//   objEnd.hours = Number(arrayEnd[0]);
-//   objEnd.minutes = Number(arrayEnd[1]);
-//   objEnd.totalMinutes = (objEnd.hours * 60) + objEnd.minutes;
-
-//   const arrayMeet = meet.split(':');
-//   const objMeet = {};
-//   objMeet.hours = Number(arrayMeet[0]);
-//   objMeet.minutes = Number(arrayMeet[1]);
-//   objMeet.totalMinutes = (objMeet.hours * 60) + objMeet.minutes;
-
-//   const totalTime = objMeet.totalMinutes - objEnd.totalMinutes;
-//   return totalTime >= duration;
-// };
-
-// console.log(timeInMinutes('14:05', '23:59', 100));

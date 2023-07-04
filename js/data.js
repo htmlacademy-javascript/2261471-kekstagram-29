@@ -75,5 +75,4 @@ const addPhotos = () => {
   return photos;
 };
 
-addPhotos();
-
+export {addPhotos};
