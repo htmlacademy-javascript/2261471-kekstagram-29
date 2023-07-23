@@ -1,5 +1,6 @@
 import './data.js';
 import './utils.js';
+import './loader.js';
 import './mini-pictures.js';
 import './big-picture.js';
 

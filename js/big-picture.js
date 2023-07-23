@@ -7,7 +7,7 @@ const pictureCaption = bigPicture.querySelector('.social__caption');
 const socialComments = bigPicture.querySelector('.social__comments');
 const socialCommentsCount = bigPicture.querySelector('.social__comment-count');
 const loadComments = bigPicture.querySelector('.comments-loader');
-const socialFooterText  = bigPicture.querySelector('.social__footer-text');
+const socialFooterText = bigPicture.querySelector('.social__footer-text');
 const pictureCloseButton = bigPicture.querySelector('.big-picture__cancel');
 
 let commentsCount = COMMENTS_STEP;
