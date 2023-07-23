@@ -7,6 +7,9 @@ import './big-picture.js';
 
 import {renderPictures} from './mini-pictures.js';
 import {addPhotos} from './data.js';
+import {onFormSubmit} from './form-validate.js';
 
 renderPictures(addPhotos());
+
+onFormSubmit();
 

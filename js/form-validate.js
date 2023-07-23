@@ -1,7 +1,5 @@
-const formElement = document.querySelector('.img-upload__form');
-const hashtagInputElement = formElement.querySelector('.text__hashtags');
-// const descriptionInputElement = formElement.querySelector('.text__description');
-// const submitButtonElement = formElement.querySelector('.img-upload__submit');
+import { normalizeString } from './utils.js';
+import { closeForm } from './loader.js';
 
 const MAX_DESCRIPTION_LENGTH = 140;
 const MAX_HASHTAG_QTY = 5;
@@ -15,8 +13,11 @@ const ErrorMessage = {
   INVALID_SEPARATOR: 'Хэштеги разделяются пробелами',
   IVALID_FIRST_SYMBOL: 'Хэштеги начинаются с символа #',
   LIMIT_DESCRIPTION_LENGTH: `Вы ввели максимально допустимое значение символов - ${MAX_DESCRIPTION_LENGTH}`,
-
 };
+
+const formElement = document.querySelector('.img-upload__form');
+const hashtagInputElement = formElement.querySelector('.text__hashtags');
+const submitButtonElement = formElement.querySelector('.img-upload__submit');
 
 let errorAlert = '';
 const error = () => errorAlert;
@@ -24,7 +25,7 @@ const error = () => errorAlert;
 const hashtagValidator = (inputValue) => {
   errorAlert = '';
 
-  const inputText = inputValue.toLowerCase().trim();
+  const inputText = normalizeString(inputValue);
 
   if(!inputText) {
     return true;
@@ -73,12 +74,33 @@ const hashtagValidator = (inputValue) => {
 };
 
 const pristine = new Pristine (formElement, {
-  classTo: 'field-validate',
+  classTo: 'img-upload__field-wrapper',
   errorClass: 'field-validate--invalid',
   successClass: 'field-validate--valid',
-  errorTextParent: 'field-validate',
+  errorTextParent: 'img-upload__field-wrapper',
   errorTextTag: 'p',
   errorTextClass: 'form-error',
 });
 
 pristine.addValidator(hashtagInputElement, hashtagValidator, error, 2, false);
+
+// Функция блокировки кнопки опубликовать при неправильном значении хэштега
+const onHashtagInput = () => {
+  if (pristine.validate()) {
+    submitButtonElement.disabled = false;
+  } else {
+    submitButtonElement.disabled = true;
+  }
+};
+
+hashtagInputElement.addEventListener('input', onHashtagInput);
+
+const onFormSubmit = () => {
+  submitButtonElement.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    closeForm();
+  });
+};
+
+export {onFormSubmit};
+

@@ -9,6 +9,8 @@ const closeButton = uploadForm.querySelector('.cancel');
 const closeForm = () => {
   imgOverlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
+  uploadForm.reset();
+  Pristine.reset();
 };
 
 fileUpload.addEventListener('change', () => {
@@ -30,3 +32,7 @@ fileUpload.addEventListener('change', () => {
 
 // Обработчик событий кнопки закрытия окна загрузки
 closeButton.addEventListener('click', closeForm);
+
+export {closeForm};
+
+
