@@ -52,7 +52,7 @@ const hashtagValidator = (inputValue) => {
     },
     {
       check: inputArray.some((hashtag) => hashtag.length > MAX_HASHTAG_LENGTH),
-      error: ErrorMessage.INVALID_HASHTAH_LENGTH,
+      error: ErrorMessage.INVALID_HASHTAG_LENGTH,
     },
     {
       check: inputArray.length > MAX_HASHTAG_QTY,
