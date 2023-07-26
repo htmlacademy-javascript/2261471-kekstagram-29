@@ -20,8 +20,6 @@ const renderPicture = (picture) => {
 
   element.addEventListener('click', onElementClick);
 
-
-
   return element;
 };
 
