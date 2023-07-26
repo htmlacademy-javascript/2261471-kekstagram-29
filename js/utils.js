@@ -6,8 +6,6 @@ const getRandomInteger = (min, max) => Math.floor(Math.random() * (max - min + 1
 //   // if(evt.key === Keys.ESCAPE || evt.key === Keys.ESC) {}
 // };
 
-const normalizeString = (string) => {
-  string.toLowerCase().trim();
-};
+const normalizeString = (string) => string.toLowerCase().trim();
 
 export {getRandomInteger, normalizeString};

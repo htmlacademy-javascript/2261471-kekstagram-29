@@ -11,7 +11,7 @@ const ErrorMessage = {
   INVALID_REPEAT: 'Хэштеги не должны повторяться',
   INVALID_HASHTAG_LENGTH: `Максимальная длина одного хэштега ${MAX_HASHTAG_LENGTH} символов, включая решётку`,
   INVALID_SEPARATOR: 'Хэштеги разделяются пробелами',
-  IVALID_FIRST_SYMBOL: 'Хэштеги начинаются с символа #',
+  INVALID_FIRST_SYMBOL: 'Хэштеги начинаются с символа #',
   LIMIT_DESCRIPTION_LENGTH: `Вы ввели максимально допустимое значение символов - ${MAX_DESCRIPTION_LENGTH}`,
 };
 
@@ -59,7 +59,7 @@ const hashtagValidator = (inputValue) => {
       error: ErrorMessage.INVALID_QUANTITY,
     },
     {
-      check: inputArray.some((hashtag) => !/^#[a-zа-яё0-9]{1-19}$/i.test(hashtag)),
+      check: inputArray.some((hashtag) => !/^#[a-zа-яё0-9]{1,19}$/i.test(hashtag)),
       error: ErrorMessage.INVALID_VALUE,
     },
   ];
