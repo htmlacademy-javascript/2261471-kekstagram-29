@@ -59,6 +59,7 @@ const effectLevel = uploadForm.querySelector('.effect-level');
 
 let selectedEffect = DEFAULT_EFFECT;
 
+// Функция добавления слайдера
 const updateSlider = () => {
   effectSlider.classList.remove('hidden');
   effectLevel.classList.remove('hidden');
@@ -70,21 +71,22 @@ const updateSlider = () => {
     step: selectedEffect.step,
     start: selectedEffect.max,
   });
-
   if (selectedEffect === DEFAULT_EFFECT) {
     effectSlider.classList.add('hidden');
     effectLevel.classList.add('hidden');
   }
 };
 
+// Функция для нахождения нужного эффекта при клике
 const onEffectListClick = (evt) => {
+  selectedEffect = DEFAULT_EFFECT;
   if(evt.target.type === 'radio') {
     selectedEffect = EFFECTS[evt.target.value];
-    console.log(123)
     updateSlider();
   }
 };
 
+// Создание слайдера-ползунка
 noUiSlider.create(effectSlider, {
   range: {
     'min': DEFAULT_EFFECT.min,
@@ -104,7 +106,7 @@ const onEffectSliderUpdate = () => {
   }
   const sliderValue = effectSlider.noUiSlider.get();
   picture.style.filter = `${selectedEffect.style}(${sliderValue}${selectedEffect.unit})`;
-  picture.classList.add(`effect_preview--${selectedEffect.name}`);
+  picture.classList.add(`effects__preview--${selectedEffect.name}`);
   effectLevelValue.value = sliderValue;
 };
 
