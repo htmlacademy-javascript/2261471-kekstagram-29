@@ -11,7 +11,7 @@ import './send.js';
 
 import {renderPictures} from './mini-pictures.js';
 import {onFormSubmit} from './form-validate.js';
-import { getData, sendData } from './server.js';
+import { getData } from './server.js';
 
 let photos = [];
 
@@ -38,7 +38,6 @@ const onError = () => {
 };
 
 getData(onSuccess, onError);
-sendData();
 
 onFormSubmit();
 

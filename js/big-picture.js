@@ -95,4 +95,4 @@ document.addEventListener('keydown', (evt) => {
   }
 });
 
-export {showBigPicture};
+export {showBigPicture };

@@ -1,14 +1,10 @@
 import { closeForm } from './loader.js';
 import { sendData } from './server.js';
+import { closeModal } from './utils.js';
 
 const uploadForm = document.querySelector('.img-upload__form');
 const successMessage = document.querySelector('#success').content.querySelector('.success');
 const errorMessage = document.querySelector('#error').content.querySelector('.error');
-
-// const closePopup = () => {
-//   const popup = document.querySelector('.error') || document.querySelector('.success');
-//   popup.remove();
-// };
 
 const onEscKeydown = () => {
   document.addEventListener('keydown', (evt) => {
@@ -24,7 +20,7 @@ const onPopupClick = (evt) => {
   const popup = document.querySelector('.error') || document.querySelector('.success');
   if (popup && !evt.target.closest('success__inner') && !evt.target.closest('error__inner')) {
     evt.preventDefault();
-    closeForm();
+    closeModal();
     document.removeEventListener('keydown', onEscKeydown);
   }
 };
