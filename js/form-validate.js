@@ -97,7 +97,6 @@ hashtagInputElement.addEventListener('input', onHashtagInput);
 const onFormSubmit = () => {
   submitButtonElement.addEventListener('click', (evt) => {
     evt.preventDefault();
-    // closeForm();
   });
 };
 

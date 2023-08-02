@@ -1,6 +1,5 @@
 import './effects.js';
 import './filters.js';
-// import './form-validate.js';
 import './utils.js';
 import './loader.js';
 import './mini-pictures.js';
