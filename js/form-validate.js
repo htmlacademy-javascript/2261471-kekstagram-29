@@ -1,5 +1,4 @@
 import { normalizeString } from './utils.js';
-// import { closeForm } from './loader.js';
 
 const MAX_DESCRIPTION_LENGTH = 140;
 const MAX_HASHTAG_QTY = 5;
@@ -102,5 +101,5 @@ const onFormSubmit = () => {
   });
 };
 
-export {onFormSubmit};
+export {onFormSubmit, pristine};
 

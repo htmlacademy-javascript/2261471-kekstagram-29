@@ -1,4 +1,3 @@
-import './data.js';
 import './effects.js';
 import './filters.js';
 // import './form-validate.js';

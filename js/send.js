@@ -3,6 +3,7 @@ import { sendData } from './server.js';
 import { isEscapeKey } from './utils.js';
 
 const uploadForm = document.querySelector('#upload-select-image');
+const submitButton = document.querySelector('#upload-submit');
 const successMessage = document.querySelector('#success').content.querySelector('.success');
 const errorMessage = document.querySelector('#error').content.querySelector('.error');
 
@@ -53,7 +54,7 @@ const onError = () => {
 
 const onUploadFormSubmit = (evt) => {
   evt.preventDefault();
-  sendData(onSuccess, onError, 'POST', new FormData(evt.target));
+  sendData(onSuccess, onError, 'POST', new FormData(uploadForm));
 };
 
-uploadForm.addEventListener('submit', onUploadFormSubmit);
+submitButton.addEventListener('click', onUploadFormSubmit);
