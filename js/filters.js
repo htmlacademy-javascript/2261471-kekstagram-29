@@ -16,6 +16,14 @@ const availableFilters = {
 
 const onFiltersFormClick = debounce((evt) => {
   if(evt.target.tagName === 'BUTTON') {
+    removePictures();
+
+    renderPictures(availableFilters[evt.target.id]());
+  }
+});
+
+const onFiltersButtonClick = (evt) => {
+  if(evt.target.tagName === 'BUTTON') {
     const selectedButton = filtersForm.querySelector(`.${ACTIVE_CLASS}`);
 
     if(selectedButton) {
@@ -23,11 +31,9 @@ const onFiltersFormClick = debounce((evt) => {
     }
 
     evt.target.classList.add(ACTIVE_CLASS);
-
-    removePictures();
-
-    renderPictures(availableFilters[evt.target.id]());
   }
-});
+};
 
 filtersForm.addEventListener('click', onFiltersFormClick);
+
+filtersForm.addEventListener('click', onFiltersButtonClick);
