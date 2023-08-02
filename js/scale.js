@@ -8,7 +8,7 @@ const Scale = {
   MAX: 100,
   DEFAULT: 100,
 };
-
+// Вот здесь надо было дописать %
 scaleField.value = `${Scale.DEFAULT}%`;
 
 const setScale = (scaleValue) => {
