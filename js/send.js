@@ -11,7 +11,7 @@ const closePopup = () => {
   popup.remove();
 };
 
-const onEscKeydown = () => {
+const onEscKeydown = (evt) => {
   if(isEscapeKey(evt)) {
     closePopup();
   }

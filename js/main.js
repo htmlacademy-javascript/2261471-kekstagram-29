@@ -1,8 +1,9 @@
 import './data.js';
 import './effects.js';
+import './filters.js';
 // import './form-validate.js';
 import './utils.js';
-// import './loader.js';
+import './loader.js';
 import './mini-pictures.js';
 import './big-picture.js';
 import './scale.js';
@@ -40,4 +41,6 @@ const onError = () => {
 getData(onSuccess, onError);
 
 onFormSubmit();
+
+export{photos};
 
