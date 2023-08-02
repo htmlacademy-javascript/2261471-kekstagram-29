@@ -1,5 +1,5 @@
 const scaleControlBlock = document.querySelector('.scale');
-const scaleField = document.querySelector('.scale__control--value');
+const scaleField = scaleControlBlock.querySelector('.scale__control--value');
 const picture = document.querySelector('.img-upload__preview img');
 
 const Scale = {
@@ -9,7 +9,7 @@ const Scale = {
   DEFAULT: 100,
 };
 
-scaleField.value = `${Scale.DEFAULT}`;
+scaleField.value = `${Scale.DEFAULT}%`;
 
 const setScale = (scaleValue) => {
   picture.style.transform = `scale(${scaleValue / Scale.DEFAULT})`;
