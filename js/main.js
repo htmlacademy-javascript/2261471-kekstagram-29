@@ -9,6 +9,7 @@ import './big-picture.js';
 import './scale.js';
 import './server.js';
 import './send.js';
+import './user-photo.js';
 
 import {renderPictures} from './mini-pictures.js';
 import {onFormSubmit} from './form-validate.js';

@@ -2,7 +2,7 @@ import { closeForm } from './loader.js';
 import { sendData } from './server.js';
 import { isEscapeKey } from './utils.js';
 
-const uploadForm = document.querySelector('.img-upload__form');
+const uploadForm = document.querySelector('#upload-select-image');
 const successMessage = document.querySelector('#success').content.querySelector('.success');
 const errorMessage = document.querySelector('#error').content.querySelector('.error');
 
