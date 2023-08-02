@@ -1,5 +1,5 @@
 import { normalizeString } from './utils.js';
-import { closeForm } from './loader.js';
+// import { closeForm } from './loader.js';
 
 const MAX_DESCRIPTION_LENGTH = 140;
 const MAX_HASHTAG_QTY = 5;
@@ -98,7 +98,7 @@ hashtagInputElement.addEventListener('input', onHashtagInput);
 const onFormSubmit = () => {
   submitButtonElement.addEventListener('click', (evt) => {
     evt.preventDefault();
-    closeForm();
+    // closeForm();
   });
 };
 
