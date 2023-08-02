@@ -1,4 +1,5 @@
 // import { isEscapeKey } from './utils.js';
+import {resetEffects} from './effects.js';
 
 const uploadForm = document.querySelector('.img-upload__form');
 const fileUpload = document.querySelector('#upload-file');
@@ -11,6 +12,7 @@ const closeForm = () => {
   document.body.classList.remove('modal-open');
   uploadForm.reset();
   Pristine.reset();
+  resetEffects();
 };
 
 fileUpload.addEventListener('change', () => {

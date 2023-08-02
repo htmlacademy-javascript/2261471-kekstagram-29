@@ -1,5 +1,5 @@
 import {debounce, shuffleArray} from './utils.js';
-import { renderPictures, removePictures } from './mini-pictures.js';
+import {renderPictures, removePictures} from './mini-pictures.js';
 import {photos} from './main.js';
 
 const sectionFilter = document.querySelector('.img-filters');
