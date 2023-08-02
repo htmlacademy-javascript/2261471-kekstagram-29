@@ -1,6 +1,7 @@
 import { isEscapeKey } from './utils.js';
 import {resetEffects} from './effects.js';
 import { pristine } from './form-validate.js';
+import { resetScale } from './scale.js';
 
 const uploadForm = document.querySelector('.img-upload__form');
 const fileUpload = document.querySelector('#upload-file');
@@ -16,6 +17,7 @@ const closeForm = () => {
   uploadForm.reset();
   resetEffects();
   pristine.reset();
+  resetScale();
   submitButtonElement.disabled = false;
 };
 
