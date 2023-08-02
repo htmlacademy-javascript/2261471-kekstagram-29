@@ -12,7 +12,9 @@ const sendRequest = (onSuccess, onError, method, body) => {
     },
   )
     .then((response) => response.json())
-    .then((data) => onSuccess(data))
+    .then((data) => {
+      onSuccess(data);
+    })
     .catch((err) => {
       onError(err);
     });

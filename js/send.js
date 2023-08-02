@@ -1,26 +1,26 @@
 import { closeForm } from './loader.js';
 import { sendData } from './server.js';
-import { closeModal } from './utils.js';
+import { isEscapeKey } from './utils.js';
 
 const uploadForm = document.querySelector('.img-upload__form');
 const successMessage = document.querySelector('#success').content.querySelector('.success');
 const errorMessage = document.querySelector('#error').content.querySelector('.error');
 
+const closePopup = () => {
+  const popup = document.querySelector('.error') || document.querySelector('.success');
+  popup.remove();
+};
+
 const onEscKeydown = () => {
-  document.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Escape') {
-      evt.preventDefault();
-      closeForm();
-    }
-  });
-  document.removeEventListener('keydown', onEscKeydown);
+  if(isEscapeKey(evt)) {
+    closePopup();
+  }
 };
 
 const onPopupClick = (evt) => {
-  const popup = document.querySelector('.error') || document.querySelector('.success');
-  if (popup && !evt.target.closest('success__inner') && !evt.target.closest('error__inner')) {
+  if (!evt.target.classList.contains('success__inner') && !evt.target.classList.contains('error__inner')) {
     evt.preventDefault();
-    closeModal();
+    closePopup();
     document.removeEventListener('keydown', onEscKeydown);
   }
 };
@@ -32,37 +32,15 @@ const showMessage = (message) => {
 };
 
 const showErrorMessage = () => {
-  const messageFragment = (errorMessage.cloneNode(true));
-  const errorButton = messageFragment.querySelector('.error__button');
-
+  const messageFragment = errorMessage.cloneNode(true);
   showMessage(messageFragment);
-
-  errorButton.addEventListener('click', () => {
-    document.querySelector('.img-upload__overlay').classList.remove('hidden');
-    closeForm();
-  });
 };
 
+// Функция отображения сообщения об успехе
 const showSuccessMessage = () => {
-  const messageFragment = (successMessage.cloneNode(true));
-  const successButton = messageFragment.querySelector('.success__button');
-
+  const messageFragment = successMessage.cloneNode(true);
   showMessage(messageFragment);
-
-  successButton.addEventListener('click', () => {
-    document.querySelector('.img-upload__overlay').classList.remove('hidden');
-    closeForm();
-  });
 };
-
-// // Показывает сообщение
-// const showMessage = () => {
-//   if (onSuccess) {
-//     document.body.appendChild(successMessage.cloneNode(true));
-//   } else {
-//     document.body.appendChild(errorMessage.cloneNode(true));
-//   }
-// };
 
 const onSuccess = () => {
   closeForm();
